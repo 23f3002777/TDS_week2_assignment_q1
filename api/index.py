@@ -19,8 +19,11 @@ app.add_middleware(
 
 @app.middleware("http")
 async def add_request_id_header(request: Request, call_next):
+    start_time = time.perf_counter()
     response = await call_next(request)
+    elapsed = time.perf_counter() - start_time
     response.headers["X-Request-ID"] = str(uuid.uuid4())
+    response.headers["X-Process-Time"] = str(max(elapsed, 0.0))
     return response
 
 PUBLIC_KEY = """-----BEGIN PUBLIC KEY-----
