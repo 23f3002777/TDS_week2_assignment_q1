@@ -13,7 +13,7 @@ origins = [
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origin_regex=".*",
+    allow_origins=["https://dash-mmbu4l.example.com"],
     allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
