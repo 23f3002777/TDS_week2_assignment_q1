@@ -1,3 +1,6 @@
+My local copy of the file is syntactically valid, so the break is likely in what actually got pasted/committed to GitHub (a stray character, missing import time, or mismatched indentation from copy-pasting). Rather than debug blind, replace the entire file with this exact copy-paste — don't edit line by line this time:
+
+python
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
@@ -5,6 +8,7 @@ from pydantic import BaseModel
 import jwt
 import threading
 import uuid
+import time
 
 app = FastAPI()
 
@@ -25,6 +29,7 @@ async def add_request_id_header(request: Request, call_next):
     response.headers["X-Request-ID"] = str(uuid.uuid4())
     response.headers["X-Process-Time"] = str(max(elapsed, 0.0))
     return response
+
 
 PUBLIC_KEY = """-----BEGIN PUBLIC KEY-----
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2okOHspNjgA+2rTLbeuY
