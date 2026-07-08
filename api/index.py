@@ -1,6 +1,3 @@
-My local copy of the file is syntactically valid, so the break is likely in what actually got pasted/committed to GitHub (a stray character, missing import time, or mismatched indentation from copy-pasting). Rather than debug blind, replace the entire file with this exact copy-paste — don't edit line by line this time:
-
-python
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
